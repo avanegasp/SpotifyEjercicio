@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_145348) do
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
-    t.integer "song_id"
+    t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,12 +23,14 @@ ActiveRecord::Schema.define(version: 2018_11_28_145348) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
+    t.decimal "released_at"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "name"
     t.decimal "number"
-    t.integer "artist_id"
+    t.integer "album_id"
+    t.string "preview_url"
   end
 
 end
