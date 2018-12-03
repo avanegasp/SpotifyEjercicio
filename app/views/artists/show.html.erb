@@ -2,8 +2,23 @@
 
 <div class="artists-list">
   <div class="card" style="width: 18rem;">
-     <div class="col-sm-5 col-md-4"><img src="<%= @artist.image_url %>" style="width:150px;"></div>
+       <div class="col-sm-5 col-md-4"><img src="<%= @artist.image_url %>" style="width:150px;"></div>
       <h1><%= @artist.name%></h1>
+        <h2>Albums: <%= @artist.albums.count%></h2>
+        <h2>Mis albumes</h2>
+        <ul>
+          <% @artist.albums.each do|album|%>
+            <% album.songs.each do |song|%>
+                <li><%= album.name%></li>
+                <img src="<%= album.image_url%>" style="width:125px">
+            <h2>Año de lanzamiento</h2>
+                <li><%= album.released_at.to_i%></li>
+            <h2>Canciones de mi albúm</h2>
+            <li><%= song.name%></li>
+            <li><%= song.number.to_i%></li>
+            <% end %>
+          <% end %>
+        </ul>
   </div>
   <div class="card-body">
     <a href="#"><%= link_to 'Ver Todos los artistas', '/artists', class: 'btn btn-primary' %></a>

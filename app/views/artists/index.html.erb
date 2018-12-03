@@ -1,13 +1,17 @@
 <h1>Mi música preferida</h1>
 
 
-<div class="artists-list">
+<div class="artists-list" style="display:inline-flex; margin-left:30px;">
   <%@artists.each do|artist|%>
   <div class="card" style="width: 18rem;">
+      <ul>
      <div class="col-sm-5 col-md-4"><img src="<%= artist.image_url %>" style="width:150px;"></div>
-      <h1><%= artist.name%></h1>
-    <div class="card-body">
+      <h1 style= "margin-top:60px;"><%= artist.name%></h1>
+
+      </ul>
+    <div class="card-boroom_path(room)dy">
       <a href="#"><%= link_to 'Ir a ver mi artista', artist, class: 'btn btn-primary' %></a>
+      <a href="#"><%= link_to 'Borrar artista', delete_artist_path(artist), method: :delete, class: 'btn btn-primary' %></a>
     </div>
   </div>
   <%end%>

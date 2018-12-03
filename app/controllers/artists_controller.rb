@@ -5,10 +5,12 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    puts "////////////////////////"
-    puts @artist = Artist.find(params[:id])
-    puts "////////////////////////"
-
+    @artist = Artist.find(params[:id])
   end
 
+  def destroy
+    @artist = Artist.find(params[:id])
+    @artist.destroy
+    redirect_to artists_path
+  end
 end
