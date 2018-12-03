@@ -1,11 +1,11 @@
 <h1>Este es mi artista</h1>
-  <H2>Make it Real</H2>
+  <H2>Make it real</H2>
 
 <div class="artists-list">
   <div class="card" style="width: 18rem;">
        <div class="col-sm-5 col-md-4"><img src="<%= @artist.image_url %>" style="width:150px;"></div>
       <h1><%= @artist.name%></h1>
-        <h2>Albums: <%= @artist.albums.count%></h2>
+        <h2>Albums: <%= @artist.albums.count %></h2>
         <h2>Mis albumes</h2>
         <ul>
           <% @artist.albums.each do|album|%>
